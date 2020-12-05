@@ -13,17 +13,19 @@ import tldextract
 from markdownify import markdownify
 
 
-path = '../terms/'
+pdf_path = '../pdf/'
+terms_path = '../terms/'
 
 urls = [
-    'https://benjamins.com/catalog/term.4.1.08bes/fulltext/term.4.1.08bes.pdf',
+    'https://donate.fbk.info/files/oferta.pdf',
+    # 'https://benjamins.com/catalog/term.4.1.08bes/fulltext/term.4.1.08bes.pdf',
     # 'https://nuzhnapomosh.ru/wp-content/themes/takiedela/assets/pdf/oferta_personal.pdf',
     # 'http://prostor-sklad.ru/docs/terms_of_use.pdf',
     # 'https://docs.github.com/en/free-pro-team@latest/github/site-policy/github-terms-of-service'
 ]
 
 
-def download_doc(url, path='/tmp/'):
+def download_doc(url, path=pdf_path):
     ext = tldextract.extract(url)
     domain_name = ext.domain
     parsed = urlparse(url)
@@ -34,37 +36,35 @@ def download_doc(url, path='/tmp/'):
     with open(path + filename, 'wb') as f:
         f.write(response.content)
 
-    return path + filename
+    return filename
 
 
-def is_pdf(file):
+def is_pdf(file, path=pdf_path):
     return file.endswith('.pdf')
 
 
-# TODO: fix this
-# TypeError: string argument expected, got 'bytes'
-def pdf_to_html(pdf):
+def pdf_to_html(pdf, input_dir, output_dir=terms_path):
     print(f'{pdf} is pdf :) and gonna to be converted to html')
     output = BytesIO()
-    html_file_name = "intermediate.html"
+    html_file_name = f"{pdf}.html"
 
-    with open(pdf, 'rb') as pdf_file:
+    with open(input_dir + pdf, 'rb') as pdf_file:
         extract_text_to_fp(pdf_file, output, laparams=LAParams(), output_type='html', codec='utf-8')
-    with open(html_file_name, 'wb') as html_file:
+    with open(output_dir + html_file_name, 'wb') as html_file:
         html_file.write(output.getvalue())
 
     print('done.')
     return html_file_name
 
 
-def html_to_md(html_file_name):
+def html_to_md(html_file_name, path=terms_path):
     print(f'{html_file_name} is gonna be converted to markdown')
 
     md_file_name = f'{html_file_name}.md'
 
-    html_content = open(html_file_name, "r").read()
+    html_content = open(path + html_file_name, "r").read()
     output = markdownify(html_content, heading_style="ATX")
-    with open(md_file_name, 'w') as md_file:
+    with open(path + md_file_name, 'w') as md_file:
         md_file.write(output)
 
     print('done.')
@@ -76,8 +76,8 @@ def main():
         url = urls.pop()
         terms = (download_doc(url))
         if is_pdf(terms):
-            name = pdf_to_html(terms)
-            print(html_to_md(name))
+            name = pdf_to_html(terms, pdf_path, terms_path)
+            print(html_to_md(name, terms_path))
         else:
             print(terms + ' is NOT pdf :(')
 
