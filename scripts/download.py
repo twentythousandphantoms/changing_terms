@@ -20,7 +20,8 @@ urls = [
     'https://donate.fbk.info/files/oferta.pdf',
     'https://acdn.tinkoff.ru/static/documents/627ee150-0276-4a81-9d0c-8be1e265ae87.pdf',
     'https://static.tinkoff.ru/documents/credit_cards/consumer_loan.pdf',
-    'https://acdn.tinkoff.ru/static/documents/loyalty-program-target_rules.pdf'
+    'https://acdn.tinkoff.ru/static/documents/loyalty-program-target_rules.pdf',
+    'https://acdn.tinkoff.ru/static/documents/9fd26052-7200-4593-aa8e-97ad4d5ccd06.pdf'
 ]
 
 
