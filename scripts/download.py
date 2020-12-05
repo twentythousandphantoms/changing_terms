@@ -19,7 +19,10 @@ urls = [
     'https://static.tinkoff.ru/documents/credit_cards/consumer_loan.pdf',
     'https://acdn.tinkoff.ru/static/documents/loyalty-program-target_rules.pdf',
     'https://acdn.tinkoff.ru/static/documents/9fd26052-7200-4593-aa8e-97ad4d5ccd06.pdf',
-    'https://acdn.tinkoff.ru/static/documents/1b2a4c18-768a-4d0d-883c-bc43b56874bb.pdf'
+    'https://acdn.tinkoff.ru/static/documents/1b2a4c18-768a-4d0d-883c-bc43b56874bb.pdf',
+    # TODO: Check pdf file another way
+    'https://www.tinkoff.ru/api/tinsurance/document/static?fileId=8052e01b-7513-44ea-b7a0-cbb5400e56f4',
+    'https://fs.moex.com/f/3499/agreement.pdf'
 ]
 
 
