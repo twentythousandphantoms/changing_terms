@@ -6,10 +6,7 @@ from pdfminer.layout import LAParams
 from io import StringIO
 from io import BytesIO
 import codecs
-
-
 import tldextract
-
 from markdownify import markdownify
 
 
@@ -21,7 +18,8 @@ urls = [
     'https://acdn.tinkoff.ru/static/documents/627ee150-0276-4a81-9d0c-8be1e265ae87.pdf',
     'https://static.tinkoff.ru/documents/credit_cards/consumer_loan.pdf',
     'https://acdn.tinkoff.ru/static/documents/loyalty-program-target_rules.pdf',
-    'https://acdn.tinkoff.ru/static/documents/9fd26052-7200-4593-aa8e-97ad4d5ccd06.pdf'
+    'https://acdn.tinkoff.ru/static/documents/9fd26052-7200-4593-aa8e-97ad4d5ccd06.pdf',
+    'https://acdn.tinkoff.ru/static/documents/1b2a4c18-768a-4d0d-883c-bc43b56874bb.pdf'
 ]
 
 
