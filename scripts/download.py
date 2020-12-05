@@ -18,10 +18,7 @@ terms_path = '../terms/'
 
 urls = [
     'https://donate.fbk.info/files/oferta.pdf',
-    # 'https://benjamins.com/catalog/term.4.1.08bes/fulltext/term.4.1.08bes.pdf',
-    # 'https://nuzhnapomosh.ru/wp-content/themes/takiedela/assets/pdf/oferta_personal.pdf',
-    # 'http://prostor-sklad.ru/docs/terms_of_use.pdf',
-    # 'https://docs.github.com/en/free-pro-team@latest/github/site-policy/github-terms-of-service'
+    'https://acdn.tinkoff.ru/static/documents/627ee150-0276-4a81-9d0c-8be1e265ae87.pdf'
 ]
 
 
