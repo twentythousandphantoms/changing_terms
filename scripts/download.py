@@ -22,6 +22,7 @@ urls = [
     'https://acdn.tinkoff.ru/static/documents/1b2a4c18-768a-4d0d-883c-bc43b56874bb.pdf',
     # TODO: Check pdf file another way
     'https://www.tinkoff.ru/api/tinsurance/document/static?fileId=8052e01b-7513-44ea-b7a0-cbb5400e56f4',
+    'http://parkingnapushkina.ru/files/Pravila-reglament.pdf'
     'https://fs.moex.com/f/3499/agreement.pdf'
 ]
 
