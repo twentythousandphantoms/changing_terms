@@ -39,9 +39,15 @@ def download_doc(url, path=pdf_path):
 
     return filename
 
-
+3
 def is_pdf(file, path=pdf_path):
-    return file.endswith('.pdf')
+    import filetype
+    kind = filetype.guess(path + file)
+
+    if kind is None:
+        print('Cannot guess file type!')
+        return False
+    return kind.extension == 'pdf'
 
 
 def pdf_to_html(pdf, input_dir, output_dir=terms_path):

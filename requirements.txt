@@ -2,3 +2,5 @@ html2markdown
 tldextract
 requests
 pdfminer.six
+markdownify
+filetype
