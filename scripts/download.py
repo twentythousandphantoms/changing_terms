@@ -20,7 +20,6 @@ urls = [
     'https://acdn.tinkoff.ru/static/documents/loyalty-program-target_rules.pdf',
     'https://acdn.tinkoff.ru/static/documents/9fd26052-7200-4593-aa8e-97ad4d5ccd06.pdf',
     'https://acdn.tinkoff.ru/static/documents/1b2a4c18-768a-4d0d-883c-bc43b56874bb.pdf',
-    # TODO: Check pdf file another way
     'https://www.tinkoff.ru/api/tinsurance/document/static?fileId=8052e01b-7513-44ea-b7a0-cbb5400e56f4',
     'http://parkingnapushkina.ru/files/Pravila-reglament.pdf'
     'https://fs.moex.com/f/3499/agreement.pdf'
@@ -66,6 +65,17 @@ def pdf_to_html(pdf, input_dir, output_dir=terms_path):
 
 
 def html_to_md(html_file_name, path=terms_path):
+    """Convert HTML file to Markdown
+
+    Makes a new markdown file converted from HTML file passed in html_file_name.
+
+    Args:
+
+        html_file_name (string): Name of the HTML file from the contents of which the markdown will be made
+
+        path (string): (optional) the path to the directory containing the HTML file. If not given default terms_path will be used
+    
+    """
     print(f'{html_file_name} is gonna be converted to markdown')
 
     md_file_name = f'{html_file_name}.md'
