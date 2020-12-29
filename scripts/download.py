@@ -1,4 +1,5 @@
 import os
+import re
 import requests
 from urllib.parse import urlparse
 from pdfminer.high_level import extract_text_to_fp
@@ -39,7 +40,7 @@ def download_doc(url, path=pdf_path):
 
     return filename
 
-3
+
 def is_pdf(file, path=pdf_path):
     import filetype
     kind = filetype.guess(path + file)
@@ -48,6 +49,23 @@ def is_pdf(file, path=pdf_path):
         print('Cannot guess file type!')
         return False
     return kind.extension == 'pdf'
+
+
+def del_page_nums(text_file, input_dir, output_dir=terms_path):
+    f = open(input_dir + text_file,'r')
+
+    regexp = r'(Page \d+|\>Page:)'
+    lst = []
+    for line in f:
+        if not re.search(regexp, line):
+            lst.append(line)
+    f.close()
+    f = open(output_dir + text_file,'w')
+    for line in lst:
+        f.write(line)
+    f.close()
+
+    return text_file
 
 
 def pdf_to_html(pdf, input_dir, output_dir=terms_path):
@@ -85,7 +103,6 @@ def html_to_md(html_file_name, path=terms_path):
     with open(path + md_file_name, 'w') as md_file:
         md_file.write(output)
 
-    print('done.')
     return md_file_name
 
 
@@ -95,7 +112,9 @@ def main():
         terms = (download_doc(url))
         if is_pdf(terms):
             name = pdf_to_html(terms, pdf_path, terms_path)
-            print(html_to_md(name, terms_path))
+            del_page_nums(name, terms_path)
+            name = html_to_md(name, terms_path)
+            print('done.')
         else:
             print(terms + ' is NOT pdf :(')
 
